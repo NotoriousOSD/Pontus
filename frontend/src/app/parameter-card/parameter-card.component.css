@@ -1,0 +1,33 @@
+.parameter-card {
+  width: 240px;
+}
+
+.card-title {
+  position:relative;
+}
+
+.info-icon {
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+}
+
+.expansion-title {
+  margin: -16px -15px 0 -15px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  box-shadow: none;
+}
+.expansion-content-wrapper ul {
+  padding-left: 0;
+}
+
+.timer-wrapper:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.timer-wrapper:not(:last-child) > .timer-spacer {
+  width: 100%;
+  height: 5px;
+  border-bottom: 1px rgba(0,0,0,.2) solid;
+}

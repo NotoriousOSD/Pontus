@@ -1,0 +1,66 @@
+.new-entry-body {
+  padding: 10px;
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: center;
+}
+.grid-item {
+  margin:10px;
+}
+.mat-card.new-entry-card {
+  max-width: 240px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.mat-form-field {
+  padding: 0 10px;
+}
+
+.input-container:first-child {
+  flex: 0 1 240px;
+}
+
+.input-container:not(:first-child) {
+  flex: 0 1 120px;
+}
+
+.input-container:not(:first-child) > .mat-form-field {
+  width: 90px;
+}
+
+.button-container {
+  flex: 1 1 100%;
+}
+
+.time-input {
+  width: 120px;
+}
+
+.parameter-card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.timer-card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.notes-input {
+  width: 100%;
+}
+
+.notes-container {
+  width: 210px;
+}
+
+.error-span {
+  color: #f44336;
+}

@@ -1,0 +1,71 @@
+<div class="new-entry-body">
+  <div class="parameter-entry-wrapper">
+    <mat-card class="new-entry-card grid-item">
+      <div class="form-container">
+        <div class="input-container date-time-container">
+          <mat-form-field class="date-input">
+            <mat-label>Choose a date</mat-label>
+            <input matInput required [matDatepicker]="picker" [(ngModel)]="this.entryDate" >
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field class="time-input">
+            <mat-label>Time</mat-label>
+            <input matInput required type="time" [(ngModel)]="this.entryTime">
+          </mat-form-field>
+          <button mat-button color="accent" (click)="this.setTimeToNow()">now</button>
+        </div>
+        <div class="input-container ph-gh-kh-container">
+          <mat-form-field class="ph-input">
+            <mat-label>pH</mat-label>
+            <input matInput type="number" [(ngModel)]="this.mainEntry.ph">
+          </mat-form-field>
+          <mat-form-field class="gh-input">
+            <mat-label>gH</mat-label>
+            <input matInput type="number" [(ngModel)]="this.mainEntry.gh">
+          </mat-form-field>
+          <mat-form-field class="kh-input">
+            <mat-label>kH</mat-label>
+            <input matInput type="number" [(ngModel)]="this.mainEntry.kh">
+          </mat-form-field>
+        </div>
+        <div class="input-container ammonia-nitrites-nitrates-container">
+          <mat-form-field class="ammonia-input">
+            <mat-label>ammonia</mat-label>
+            <input matInput type="number" [(ngModel)]="this.mainEntry.ammonia">
+          </mat-form-field>
+          <mat-form-field class="nitrites-input">
+            <mat-label>nitrites</mat-label>
+            <input matInput type="number" [(ngModel)]="this.mainEntry.nitrites">
+          </mat-form-field>
+          <mat-form-field class="nitrates-input">
+            <mat-label>nitrates</mat-label>
+            <input matInput type="number" [(ngModel)]="this.mainEntry.nitrates">
+          </mat-form-field>
+        </div>
+        <div class="notes-container">
+          <mat-form-field class="notes-input">
+            <mat-label>notes</mat-label>
+            <textarea matInput [(ngModel)]="this.mainEntry.notes"></textarea>
+          </mat-form-field>
+        </div>
+        <div class="button-container">
+          <button *ngIf="!this.isExistingEntry" (click)="submitEntry()" mat-button color="accent">submit</button>
+          <button *ngIf="this.isExistingEntry" (click)="updateEntry()" mat-button color="accent">update</button>
+          <span class="error-span">{{this.errorMessage}}</span>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+  <div class="parameter-card-wrapper">
+    <div class="no-timer-card-wrapper">
+      <div class="grid-item"><app-parameter-card [settings]="this.phCardSettings"></app-parameter-card></div>
+      <div class="grid-item"><app-parameter-card [settings]="this.ghAndKhCardSettings"></app-parameter-card></div>
+    </div>
+    <div class="timer-card-wrapper">
+      <div class="grid-item"><app-parameter-card [settings]="this.ammoniaCardSettings"></app-parameter-card></div>
+      <div class="grid-item"><app-parameter-card [settings]="this.nitritesCardSettings"></app-parameter-card></div>
+      <div class="grid-item"><app-parameter-card [settings]="this.nitratesCardSettings"></app-parameter-card></div>
+    </div>
+  </div>
+</div>

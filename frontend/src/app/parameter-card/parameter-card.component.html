@@ -1,0 +1,22 @@
+<mat-card class="parameter-card">
+  <mat-expansion-panel (opened)="isInfoDisplayed = true" class="expansion-title"
+                       (closed)="isInfoDisplayed = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title class="card-title">
+        {{ this.settings.title }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="expansion-content-wrapper">
+      <ul>
+        <li *ngFor="let li of this.settings.expansionContent">{{li}}</li>
+      </ul>
+    </div>
+
+  </mat-expansion-panel>
+  <div class="timer-wrapper" *ngFor="let timer of this.settings.timers">
+    <app-timer [timerDuration]="timer.duration"
+               [timerLabel]="timer.title">
+    </app-timer>
+    <div class="timer-spacer"></div>
+  </div>
+</mat-card>

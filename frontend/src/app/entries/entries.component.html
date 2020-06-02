@@ -1,0 +1,62 @@
+<div class="entries-body">
+  <table mat-table [dataSource]="this.entries" multiTemplateDataRows class="entries-table">
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef> Date </th>
+      <td mat-cell *matCellDef="let entryRow"> {{entryRow.date | date }} </td>
+    </ng-container>
+    <ng-container matColumnDef="ph">
+      <th mat-header-cell *matHeaderCellDef> pH </th>
+      <td mat-cell *matCellDef="let entryRow"> {{entryRow.ph}} </td>
+    </ng-container>
+    <ng-container matColumnDef="gh">
+      <th mat-header-cell *matHeaderCellDef> gH </th>
+      <td mat-cell *matCellDef="let entryRow"> {{entryRow.gh}} </td>
+    </ng-container>
+    <ng-container matColumnDef="kh">
+      <th mat-header-cell *matHeaderCellDef> kH </th>
+      <td mat-cell *matCellDef="let entryRow"> {{entryRow.kh}} </td>
+    </ng-container>
+    <ng-container matColumnDef="ammonia">
+      <th mat-header-cell *matHeaderCellDef> Ammonia </th>
+      <td mat-cell *matCellDef="let entryRow"> {{entryRow.ammonia}} </td>
+    </ng-container>
+    <ng-container matColumnDef="nitrites">
+      <th mat-header-cell *matHeaderCellDef> Nitrites </th>
+      <td mat-cell *matCellDef="let entryRow"> {{entryRow.nitrites}} </td>
+    </ng-container>
+    <ng-container matColumnDef="nitrates">
+      <th mat-header-cell *matHeaderCellDef> Nitrates </th>
+      <td mat-cell *matCellDef="let entryRow"> {{entryRow.nitrates}} </td>
+    </ng-container>
+    <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+    <ng-container matColumnDef="expandedDetail">
+      <td mat-cell *matCellDef="let entry" [attr.colspan]="columnsToDisplay.length">
+        <div class="entry-detail"
+             [@detailExpand]="entry == expandedEntry ? 'expanded' : 'collapsed'">
+          <div class="details-wrapper">
+            <div class="details-info">
+              <div class="time-detail">
+                {{entry.date | date:'shortTime'}}
+              </div>
+            </div>
+            <div class="entry-notes" [innerHTML]="entry.notes">
+            </div>
+            <div class="details-buttons">
+              <a mat-button routerLink="/entryForm"
+                 color="accent" [state]="{data: {entryToUpdate: entry}}">update</a><br/>
+              <button mat-button color="warn"
+                      (click)="delete(entry)">remove</button>
+            </div>
+          </div>
+        </div>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let entryRow; columns: columnsToDisplay"
+        class="entry-row"
+        [class.expanded-row]="expandedEntry === entryRow"
+        (click)="expandedEntry = expandedEntry === entryRow ? null : entryRow">
+    </tr>
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="entry-detail-row"></tr>
+  </table>
+</div>

@@ -1,0 +1,51 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.timer-input-border {
+  border-bottom: 1px rgba(255,255,255,.7) solid;
+  color: white;
+  width: fit-content;
+  display: inline-block;
+  margin-right:5px;
+}
+
+.timer-input-border.expired *:not(.timer-label) {
+  color: #f44336;
+  font-weight: bold;
+}
+
+.timer-input-border input {
+  background: transparent;
+  border: none;
+  color: white;
+  text-align:right;
+  width: 19px;
+  padding: 0;
+}
+
+.timer-input-border input#seconds {
+  text-align: left;
+}
+
+.timer-input-border input:focus {
+  outline: none;
+}
+
+span.colon-span {
+  padding: 0 1px;
+}
+
+.timer-label {
+  color: rgba(255,255,255,.7);
+}
+
+.start-button, .stop-button, .reset-button {
+  display: inline-block;
+}

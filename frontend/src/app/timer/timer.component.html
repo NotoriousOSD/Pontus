@@ -1,0 +1,20 @@
+<div matRipple [matRippleDisabled]="true">
+  <div class="timer-label">
+    {{ this.timerLabel }}
+  </div>
+  <div class="timer-input-border" [ngClass]="{'expired': this.isExpired}">
+    <input [disabled]="isCounting" #minutesInput [(ngModel)]="this.minutes"
+           id="minutes" type="number" min="0" max="59"
+           (change)="this.addPrecedingZeroToInput($event.target)">
+    <span class="colon-span">:</span>
+    <input [disabled]="isCounting" #secondsInput [(ngModel)]="this.seconds"
+           id="seconds" type="number" min="0" max="59"
+           (change)="this.addPrecedingZeroToInput($event.target)">
+  </div>
+  <a *ngIf="!isCounting" #startButton mat-button class="start-button"
+     color="accent" (click)="startTimer()">start</a>
+  <a *ngIf="isCounting "#stopButton mat-button class="stop-button"
+     color="warn" (click)="stopTimer()">stop</a>
+  <a #resetButton mat-button class="reset-button"
+     color="warn" (click)="resetTimer()">reset</a>
+</div>
