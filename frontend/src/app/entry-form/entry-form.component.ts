@@ -77,8 +77,8 @@ export class EntryFormComponent implements OnInit {
       'compare color against color chart',
     ],
     timers: [
-      {title: 'shake test tube', duration: 30},
-      {title: 'shake nitrate solution #2', duration: 60},
+      {title: 'shake nitrate solution #2', duration: 30},
+      {title: 'shake test tube', duration: 60},
       {title: 'let solution sit', duration: 300}
     ]
   };

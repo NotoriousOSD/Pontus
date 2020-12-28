@@ -3,6 +3,7 @@ let express = require('express'),
     mongoose = require('mongoose'),
     cors = require('cors'),
     bodyParser = require('body-parser'),
+    bearerToken = require('express-bearer-token'),
     dbConfig = require('./database/db');
 
 mongoose.Promise = global.Promise;
@@ -24,8 +25,8 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 app.use(cors());
+app.use(bearerToken());
 app.use(express.static(path.join(__dirname, '../Pontus/index.html')));
-console.log(path.join(__dirname, '../Pontus/index.html'));
 app.use('/', express.static(path.join(__dirname, '../Pontus/index.html')));
 app.use('/api', entryRoute);
 
