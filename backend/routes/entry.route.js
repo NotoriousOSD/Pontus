@@ -1,5 +1,4 @@
 const express = require('express');
-const app = express();
 const entryRoute = express.Router();
 
 // Entry model
@@ -8,6 +7,7 @@ let Entry = require('../models/Entry');
 // Add Entry
 entryRoute.route('/entries').post((req, res, next) => {
     console.log("/entries POST received");
+    console.log(req.body);
     Entry.create(req.body, (error, data) => {
         if (error) {
             return next(error);

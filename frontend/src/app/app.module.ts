@@ -21,6 +21,8 @@ import {MatNativeDateModule, MatRippleModule} from "@angular/material/core";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {MatButtonModule} from "@angular/material/button";
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import {MatButtonModule} from "@angular/material/button";
     NavbarComponent,
     EntryFormComponent,
     ParameterCardComponent,
-    TimerComponent
+    TimerComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
